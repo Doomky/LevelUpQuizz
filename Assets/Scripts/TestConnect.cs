@@ -16,17 +16,22 @@ public class TestConnect : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
     }
 
+    public override void OnJoinedLobby()
+    {
+        Debug.Log("Joined Lobby");
+    }
 
     public override void OnConnectedToMaster()
     {
         base.OnConnectedToMaster();
-        print("Connected to server");
-        print("Connected as " + PhotonNetwork.LocalPlayer.NickName);
+        Debug.Log("Connected to server");
+        Debug.Log("Connected as " + PhotonNetwork.LocalPlayer.NickName);
+        PhotonNetwork.JoinLobby(TypedLobby.Default);
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
         base.OnDisconnected(cause);
-        print("Disconnected from server: " + cause);
+        Debug.Log("Disconnected from server: " + cause);
     }
 }
