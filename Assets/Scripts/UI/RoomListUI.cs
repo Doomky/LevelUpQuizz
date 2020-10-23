@@ -20,8 +20,7 @@ public class RoomListUI : MonoBehaviourPunCallbacks
             List<RoomUI> roomUIToDestroy = _roomUIs.GetRange(roomInfoList.Count, _roomUIs.Count - roomInfoList.Count);
             foreach (var roomUI in roomUIToDestroy)
                 GameObject.Destroy(roomUI);
-            _roomUIs.Capacity = roomInfoList.Count;
-            _roomUIs.TrimExcess();
+            _roomUIs.RemoveRange(roomInfoList.Count, _roomUIs.Count - roomInfoList.Count);
         }
 
         // update room UI

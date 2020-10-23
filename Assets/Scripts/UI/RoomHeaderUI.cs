@@ -14,4 +14,9 @@ public class RoomHeaderUI : MonoBehaviour
     {
         _roomNameTxt.text = PhotonNetwork.CurrentRoom.Name;
     }
+
+    public void OnClickLeaveButton()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
 }
