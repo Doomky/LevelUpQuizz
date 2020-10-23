@@ -1,4 +1,5 @@
-﻿using Photon.Realtime;
+﻿using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,7 @@ public class RoomUI : MonoBehaviour
 
     public void OnClickJoinButton()
     {
-
+        PhotonNetwork.JoinRoom(_roomInfo.Name);
     }
 
 }

@@ -11,21 +11,7 @@ public class MasterManager : MonoBehaviour
         get
         {
             if (_singleton == null)
-            {
-                MasterManager[] ts = Resources.FindObjectsOfTypeAll<MasterManager>();
-                if (ts.Length == 0)
-                {
-                    Debug.LogError("ScriptableObjectSingleton: No Instance for type: " + typeof(MasterManager).Name);
-                    return null;
-                }
-                else if (ts.Length > 1)
-                {
-                    Debug.LogError("ScriptableObjectSingleton: More than 1 Instance for type: " + typeof(MasterManager).Name);
-                    return null;
-                }
-
-                _singleton = ts[0];
-            }
+                _singleton = GameObject.FindObjectOfType<MasterManager>();
             return _singleton;
         }
     }

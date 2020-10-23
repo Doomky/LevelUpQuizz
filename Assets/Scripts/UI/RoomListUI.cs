@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class RoomListUI : MonoBehaviourPunCallbacks
 {
-
-
     [Header("UI Element")]
     [Space]
     [SerializeField] protected Transform _roomsHolder;
