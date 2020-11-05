@@ -38,6 +38,13 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - LoadQuestion
+  - MovingToNextQuestion
+  - UpdateTimer
+  - DisplayAnwser
+  - OnPlayerResultReceived
+  - QuizzIsOver
+  - LeaveRoomOnClick
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
