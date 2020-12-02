@@ -38,7 +38,8 @@ public class AnswerUI : MonoBehaviour
 
     protected void Update()
     {
-        _answerTxt.text = GameManager.Question.Answers[(int)_responseType].Text;
+        if (GameManager.Question != null)
+            _answerTxt.text = GameManager.Question.Answers[(int)_responseType].Text;
     }
 
     public void DisableBtn()

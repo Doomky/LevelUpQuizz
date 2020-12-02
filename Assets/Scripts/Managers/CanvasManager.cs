@@ -7,12 +7,14 @@ public class CanvasManager : MonoBehaviourPunCallbacks
 {
     public enum State
     {
+        SignIn,
         InLobby,
         InRoom,
         InGame,
         ResultPage
     }
 
+    [SerializeField] protected GameObject _signInCanvas;
     [SerializeField] protected GameObject _lobbyCanvas;
     [SerializeField] protected GameObject _roomCanvas;
     [SerializeField] protected GameObject _inGameCanvas;
@@ -23,6 +25,10 @@ public class CanvasManager : MonoBehaviourPunCallbacks
     {
         switch (_state)
         {
+            case State.SignIn:
+                if (GameManager.IsSignedIn)
+                    _state = State.InLobby;
+                break;
             case State.InLobby:
                 if (PhotonNetwork.InRoom)
                     _state = State.InRoom;
@@ -44,6 +50,7 @@ public class CanvasManager : MonoBehaviourPunCallbacks
             default:
                 break;
         }
+        _signInCanvas.SetActive(_state == State.SignIn);
         _lobbyCanvas.SetActive(_state == State.InLobby);
         _roomCanvas.SetActive(_state == State.InRoom);
         _inGameCanvas.SetActive(_state == State.InGame);

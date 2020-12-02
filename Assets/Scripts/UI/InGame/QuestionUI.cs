@@ -12,6 +12,7 @@ public class QuestionUI : MonoBehaviour
 
     protected void Update()
     {
-        _questionTxt.text = GameManager.Question.Text;
+        if (GameManager.Question != null)
+            _questionTxt.text = GameManager.Question.Text;
     }
 }

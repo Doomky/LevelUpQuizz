@@ -45,6 +45,11 @@ MonoBehaviour:
   - OnPlayerResultReceived
   - QuizzIsOver
   - LeaveRoomOnClick
+  - GetQuestionsFromBackend
+  - GetRandomQuestionsFromBackend
+  - HideQuestionLoadingScreen
+  - SetQuestions
+  - SetQuestion
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
