@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         while (!PhotonNetwork.IsConnected)
             yield return new WaitForEndOfFrame();
 
+        photonView.RPC("ResetScore", RpcTarget.All);
+
         photonView.RPC("HideQuestionLoadingScreen", RpcTarget.All);
         do
         {
@@ -208,5 +210,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         AnswerUI.AnswerBUI.ShowAnswerBackgroundColor();
         AnswerUI.AnswerCUI.ShowAnswerBackgroundColor();
         AnswerUI.AnswerDUI.ShowAnswerBackgroundColor();
+    }
+
+    [PunRPC]
+    protected void ResetScore()
+    {
+        _score = 0;
     }
 }
